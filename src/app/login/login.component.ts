@@ -12,4 +12,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(event) {
+    event.preventDefault();
+    console.log(event);
+  }
 }

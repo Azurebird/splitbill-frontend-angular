@@ -1,0 +1,45 @@
+@import '../css/common'
+
+.icon
+  width: 150px
+  height: 150px
+  border-radius: 50%
+  position: absolute
+  top: -75px
+  left: calc(50% - 75px)
+
+.loginbox
+  width: 320px
+  height: 420px
+  background: #ffffff
+  color: #ffffff
+  top: 50%
+  left: 50%
+  position: absolute
+  transform: translate(-50%, -50%)
+  box-sizing: border-box
+  padding: 80px 30px
+
+  input
+    width: 100%
+    margin-bottom: 20px
+
+    &[type="text"], &[type="password"]
+      border: none
+      border-bottom: 1px solid #000000
+      background: transparent
+      outline: none
+      height: 40px
+      color: #000000
+    &[type="submit"]
+      border: none
+      outline: none
+      height: 40px
+      background: $button-color-hover
+      color: #ffffff
+      font-size: 18px
+      border-radius: 20px
+    &[type="submit"]:hover
+      cursor: pointer
+      background: $button-color
+      color: #000000
