@@ -1,9 +1,9 @@
 
 <div class="loginbox">
   <img class="icon">
-  <form (submit)="onSubmit($event)">
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
+  <form [formGroup]="loginForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Username" formControlName="username">
+    <input type="password" placeholder="Password" formControlName="password">
     <input type="submit" value="Login">
     <input type="submit" value="Sign Up">
   </form>
