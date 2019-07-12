@@ -1,0 +1,10 @@
+<div class="loginbox">
+  <img class="icon">
+  <form [formGroup]="signupForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Username" formControlName="username">
+    <input type="password" placeholder="Password" formControlName="password">
+    <input type="password" placeholder="Repeat Password" formControlName="repassword">
+    <input type="submit" value="Register">
+    <input type="submit" value="Back">
+  </form>
+</div>
