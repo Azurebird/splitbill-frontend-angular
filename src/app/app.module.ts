@@ -1,4 +1,3 @@
-import { AuthModule } from './modules/auth/auth.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,7 +9,6 @@ import { AppComponent } from './app.component';
     AppComponent,
   ],
   imports: [
-    AuthModule,
     BrowserModule,
     AppRoutingModule,
   ],
