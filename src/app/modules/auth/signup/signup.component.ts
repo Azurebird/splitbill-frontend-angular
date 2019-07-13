@@ -1,3 +1,4 @@
+import { HttpService } from '@service/http/http.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
@@ -11,6 +12,7 @@ export class SignupComponent implements OnInit {
   signupForm;
 
   constructor(
+    private httpService: HttpService,
     private formBuilder: FormBuilder,
   ) {
     this.signupForm = this.formBuilder.group({
@@ -24,6 +26,6 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-
+    console.log(this.httpService.doSignUp());
   }
 }
