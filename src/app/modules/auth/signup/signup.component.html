@@ -1,5 +1,10 @@
 <div class="loginbox">
   <img class="icon">
+
+  <div class="form-error-message" *ngIf="existsError">
+      <a>{{errorMessage}}</a>
+  </div>
+
   <form [formGroup]="signupForm" (submit)="onSubmit()">
     <input type="text" placeholder="Username" formControlName="username">
     <input type="password" placeholder="Password" formControlName="password">
