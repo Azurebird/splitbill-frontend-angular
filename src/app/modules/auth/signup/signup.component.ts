@@ -1,7 +1,6 @@
-import { HttpService } from '@service/http/http.service';
+import { SignUpHttpService } from '@service/http/sign-up-http.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 interface ServerResponse {
@@ -19,8 +18,7 @@ export class SignupComponent implements OnInit {
   signupForm;
 
   constructor(
-    private httpClient: HttpClient,
-    private httpService: HttpService,
+    private signUpHttpService: SignUpHttpService,
     private formBuilder: FormBuilder,
     private router: Router
   ) {
@@ -35,18 +33,18 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    this.httpClient.post(
-      'api/profile/',
-      {
-        email: this.signupForm.value['username'],
-        pass: this.signupForm.value['password'],
-      },
-      { observe: 'response' }
-    ).subscribe(_ => {
-      this.router.navigateByUrl('/auth/login');
-    }, (error: ServerResponse) => {
-      this.errorMessage = error.message;
-      this.existsError = true;
-    });
+    this.signUpHttpService.doSignUp(
+      this.signupForm.value['username'],
+      this.signupForm.value['password']
+    ).subscribe(this.onSubmitSuccess, this.onSubmitError);
+  }
+
+  onSubmitSuccess() {
+    this.router.navigateByUrl('/auth/login');
+  }
+
+  onSubmitError(error) {
+    this.errorMessage = error.message;
+    this.existsError = true;
   }
 }
