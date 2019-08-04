@@ -36,7 +36,10 @@ export class SignupComponent implements OnInit {
     this.signUpHttpService.doSignUp(
       this.signupForm.value['username'],
       this.signupForm.value['password']
-    ).subscribe(this.onSubmitSuccess, this.onSubmitError);
+    ).subscribe(
+      _ => this.onSubmitSuccess(),
+      error => this.onSubmitError(error),
+    );
   }
 
   onSubmitSuccess() {
