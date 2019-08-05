@@ -33,12 +33,13 @@ export class LoginComponent implements OnInit {
       this.loginForm.value['username'],
       this.loginForm.value['password']
     ).subscribe(
-      _ => this.onSubmitSuccess(),
+      res => this.onSubmitSuccess(res),
       error => this.onSubmitError(error),
     );
   }
 
-  onSubmitSuccess() {
+  onSubmitSuccess(res) {
+    localStorage.setItem('token', res.token);
     this.router.navigateByUrl('/home');
   }
 

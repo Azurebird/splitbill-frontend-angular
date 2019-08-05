@@ -4,6 +4,7 @@
     "baseUrl": "src",
     "paths": {
       "@service/*": ["app/core/services/*"],
+      "@guards/*": ["app/core/guards/*"],
       "@modules/*": ["app/modules/*"]
     },
     "outDir": "./dist/out-tsc",

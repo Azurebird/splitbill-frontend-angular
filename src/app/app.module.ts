@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpErrorInterceptor } from './core/interceptors/http-error.interceptor';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -14,6 +15,13 @@ import { HttpErrorInterceptor } from './core/interceptors/http-error.interceptor
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem("token");
+        }
+      }
+    }),
   ],
   // The set of injectable objects that are available in the injector of this module.
   providers: [
