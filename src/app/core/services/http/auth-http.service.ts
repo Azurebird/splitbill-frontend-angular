@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -27,13 +27,11 @@ export class AuthHttpService {
   }
 
   doSignIn(email: string, password: string) {
+    const options = {
+      params: new HttpParams().set('email', email).set('password', password)
+    };
     return this.httpClient.post(
-      this.URL.signIn,
-      {
-        email,
-        password,
-      },
-      { observe: 'response' }
+      this.URL.signIn, {}, options
     )
   }
 }
