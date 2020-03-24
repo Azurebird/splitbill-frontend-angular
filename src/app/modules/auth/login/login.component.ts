@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthHttpService } from '@service/http/auth-http.service';
+import model from './model';
 
 @Component({
   selector: 'app-login',
@@ -29,13 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.signUpHttpService.doSignIn(
-      this.loginForm.value['username'],
-      this.loginForm.value['password']
-    ).subscribe(
-      res => this.onSubmitSuccess(res),
-      error => this.onSubmitError(error),
-    );
+    model.create({ userId: '234234', client: {}});
   }
 
   onSubmitSuccess(res) {
